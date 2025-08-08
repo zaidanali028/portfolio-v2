@@ -10,7 +10,6 @@
 		{ name: 'Kubernetes', category: 'DevOps', color: 'from-indigo-400 to-indigo-600' },
 		{ name: 'Jenkins', category: 'CI/CD', color: 'from-red-400 to-red-600' },
 		{ name: 'Terraform', category: 'Infrastructure', color: 'from-purple-400 to-purple-600' },
-		{ name: 'Python', category: 'Programming', color: 'from-yellow-400 to-yellow-600' },
 		{ name: 'TypeScript', category: 'Programming', color: 'from-blue-400 to-blue-600' },
 		{ name: 'MongoDB', category: 'Database', color: 'from-green-500 to-green-700' },
 		{ name: 'PostgreSQL', category: 'Database', color: 'from-blue-500 to-blue-700' },

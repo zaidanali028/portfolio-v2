@@ -4,52 +4,106 @@
 
 	const experiences = [
 		{
-			title: 'Senior DevOps Engineer',
-			company: 'TechCorp Solutions',
+			title: 'DevOps & Backend Engineer (National Service)',
+			company: 'AmaliTech',
+			location: 'Takoradi, Ghana / Onsite - Kumasi Office',
+			period: '2024 - Present',
+			description: 'Working on automating infrastructure, streamlining CI/CD pipelines, and implementing DevSecOps practices across multiple projects.',
+			achievements: [
+				'Automated Terraform and CDK - based infrastructure provisioning with Jenkins',
+				'Worked as a DevOps Engineer for the CRS (Car Rental System) project, managing DevOps practices and workflows for both frontend and backend teams',
+				'Implemented GitHub Actions workflows for event-driven deployments',
+				'Deployed Active-Passive Disaster Recovery solution using AWS Global Accelerator, EC2, ALB, S3, and Auto Scaling(Pilot-Light)',
+				'Built and maintained MLOps pipelines with MLflow and Apache Airflow (Titanic ML Project)'
+			]
+		},
+		{
+			title: 'Backend Developer (Internship)',
+			company: 'Dev Careers',
 			location: 'Remote',
-			period: '2023 - Present',
-			description: 'Leading cloud infrastructure initiatives and DevOps transformation projects.',
+			period: '2021',
+			description: 'Focused on backend API development using Node.js, Express, and MongoDB.',
 			achievements: [
-				'Reduced deployment time by 70% through CI/CD automation',
-				'Managed AWS infrastructure serving 1M+ users',
-				'Led team of 5 engineers in cloud migration project'
+				'Developed REST APIs with JWT authentication and role-based access control',
+				'Integrated MySQL and SQLite for database-driven projects',
+				'Built admin dashboards and internal tools using Node,Express,Handlebars and Ejs'
 			]
 		},
 		{
-			title: 'Cloud Solutions Architect',
-			company: 'CloudTech Inc',
-			location: 'San Francisco, CA',
-			period: '2021 - 2023',
-			description: 'Designed and implemented scalable cloud architectures for enterprise clients.',
+			title: 'Freelance Backend & Fullstack Developer',
+			company: 'Self-employed',
+			location: 'Kumasi, Ghana',
+			period: '2019 - Present',
+			description: 'Delivered production-grade applications for clients using Laravel, FastAPI, Flask, and Node.js.',
 			achievements: [
-				'Architected solutions for 50+ enterprise clients',
-				'Achieved 99.9% uptime across all managed systems',
-				'Reduced infrastructure costs by 40% through optimization'
-			]
-		},
-		{
-			title: 'Full Stack Developer',
-			company: 'StartupXYZ',
-			location: 'New York, NY',
-			period: '2019 - 2021',
-			description: 'Built modern web applications using React, Node.js, and cloud technologies.',
-			achievements: [
-				'Developed 10+ production applications',
-				'Implemented real-time features serving 100K+ users',
-				'Mentored junior developers and established coding standards'
+				'Built Yutamart e-commerce platform (v1 & v2)',
+				'Developed KsTU SRC school information system  Backend APIs and Admin Panel (Playstore & Appstore)',
+				'Created a custom anime streaming platform with backend logic, UI integration, and authentication'
 			]
 		}
 	];
 
 	const education = [
 		{
-			degree: 'Bachelor of Science in Computer Science',
-			school: 'University of Technology',
-			period: '2015 - 2019',
-			achievements: ['Magna Cum Laude', 'Dean\'s List (6 semesters)', 'Computer Science Society President']
+			degree: 'B.Tech in Computer Technology',
+			school: 'Kumasi Technical University',
+			period: '2021 - 2024',
+			achievements: [
+				'Capstone: Built the KsTU SRC school information system (backend APIs, authentication, and DB design) and supported mobile app integration',
+			]
+		},
+		{
+			degree: 'Diploma in Information Technology',
+			school: 'Kumasi Technical University',
+			period: '2019 - 2021',
+			achievements: [
+				'Completed practical projects in web development, scripting, and system administration',
+				'Developed multiple small-scale apps (CRUD, auth) that formed the foundation for later production work',
+				'Hands-on experience with Linux, Git, and relational databases'
+			]
+		},
+		{
+			degree: 'AWS Certified Solutions Architect – Associate',
+			school: 'Amazon Web Services',
+			period: '2025',
+			achievements: [
+				'Passed the Solutions Architect – Associate certification exam',
+				'Designed and deployed multi-tier AWS architectures using EC2, S3, RDS, VPC and IAM',
+				'Implemented Infrastructure-as-Code with Terraform and CloudFormation for repeatable deployments'
+			]
+		},
+		{
+			degree: 'AWS Certified Cloud Practitioner',
+			school: 'Amazon Web Services',
+			period: '2025',
+			achievements: [
+				'Completed Cloud Practitioner certification',
+				'Hands-on labs covering core AWS services, billing, and IAM best practices',
+				'Applied cloud fundamentals to cost-optimisation and basic security patterns'
+			]
+		},
+		{
+			degree: 'Kubernetes & Cloud Native Associate',
+			school: 'Andela',
+			period: '2025',
+			achievements: [
+				'Deployed and managed Kubernetes clusters in hands-on labs',
+				
+			]
+		},
+		{
+			degree: 'Google Data Analytics Professional Certificate',
+			school: 'Google / JA Ghana',
+			period: '2023',
+			achievements: [
+				'Completed capstone project with end-to-end data analysis and visualization using SQL and Tableau',
+				'Performed data cleaning, exploratory analysis, and produced stakeholder-facing dashboards',
+				'Gained practical experience with spreadsheets, SQL queries, and basic R workflows'
+			]
 		}
 	];
 </script>
+
 
 <section id="background" class="py-20 bg-muted/30 relative overflow-hidden">
 	<div class="container mx-auto px-6">

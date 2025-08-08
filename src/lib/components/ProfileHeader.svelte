@@ -2,10 +2,11 @@
 	import Button from '$lib/components/ui/button.svelte';
 	import { MapPin, Mail, Phone, Linkedin, Github, Download } from 'lucide-svelte';
 	import { inView, parallax, hoverAnimation } from '$lib/actions/animations';
-	import { base } from '$app/paths';
+	import { getImagePath } from '$lib/utils/assets';
 
-	// Use SvelteKit's base path for proper GitHub Pages deployment
-	const profilePhoto = `${base}/profile-photo.jpg`;
+	// Use utility function for proper GitHub Pages deployment
+	const profilePhoto = getImagePath('/profile-photo.jpg');
+	const cvDownloadPath = getImagePath('/Ali-cv-new.pdf');
 </script>
 
 <section
@@ -65,13 +66,13 @@
 				<h1 class="text-5xl lg:text-7xl font-bold text-foreground mb-6">
 					Hi, I'm <span
 						class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-glow"
-						>Ali Zaidan</span
+						>Ali Usman  Zaidan</span
 					>
 				</h1>
 
 				<div class="text-xl text-muted-foreground mb-6 space-y-2">
 					<p class="font-semibold text-primary">AWS Certified Solutions Architect</p>
-					<p>Associate/DevOps & Release Engineer</p>
+					<p>Associate/DevOps & Backend Engineer</p>
 				</div>
 
 				<p class="text-lg text-muted-foreground mb-8 max-w-2xl">
@@ -84,7 +85,7 @@
 				<div class="flex flex-wrap gap-6 mb-8 justify-center lg:justify-start">
 					<div class="flex items-center gap-2 text-muted-foreground">
 						<MapPin class="w-4 h-4 text-primary" />
-						<span>Remote / Worldwide</span>
+						<span>Remote / Hybrid</span>
 					</div>
 					<div class="flex items-center gap-2 text-muted-foreground">
 						<Mail class="w-4 h-4 text-primary" />
@@ -92,23 +93,27 @@
 					</div>
 					<div class="flex items-center gap-2 text-muted-foreground">
 						<Phone class="w-4 h-4 text-primary" />
-						<span>+1 (555) 123-4567</span>
+						<span>+233 (2400) 40834</span>
 					</div>
 				</div>
 
 				<!-- CTA Buttons -->
 				<div class="flex gap-4 mb-8 justify-center lg:justify-start">
-					<Button class="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3">
+					<a
+						href={cvDownloadPath}
+						download="Ali-Usman-Zaidan-CV.pdf"
+						class="inline-flex items-center bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg font-medium transition-colors duration-200"
+					>
 						<Download class="w-4 h-4 mr-2" />
 						Download CV
-					</Button>
+					</a>
 					<Button variant="outline" class="px-6 py-3">Get in Touch</Button>
 				</div>
 
 				<!-- Social Links -->
 				<div class="flex gap-4 justify-center lg:justify-start">
 					<a
-						href="https://linkedin.com/in/company-25"
+						href="https://www.linkedin.com/in/ali-usman-zaidan-630028200/"
 						class="p-3 bg-card/30 border border-primary/20 rounded-full hover:bg-primary/20 hover:border-primary/40 transition-all duration-300 hover:scale-110"
 					>
 						<Linkedin class="w-5 h-5 text-primary" />

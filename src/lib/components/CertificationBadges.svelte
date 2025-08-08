@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Award, Check, Star } from 'lucide-svelte';
+	import { getImagePath } from '$lib/utils/assets';
 
 	const certifications = [
 		{
@@ -7,7 +8,7 @@
 			level: 'Associate',
 			issuer: 'Amazon Web Services',
 			year: '2025',
-			image: '/lovable-uploads/b427ca48-66c5-4aaa-bea9-bf1e3f0a2151.png',
+			image: getImagePath('/cert-uploads/aws-certified-solutions-architect-associate.png'),
 			verified: true,
 			color: 'from-orange-400 to-orange-600'
 		},
@@ -17,31 +18,40 @@
 			issuer: 'Amazon Web Services',
 			year: '2025',
 			verified: true,
-			color: 'from-blue-400 to-blue-600'
+			color: 'from-blue-400 to-blue-600',
+			image: getImagePath('/cert-uploads/aws-certified-cloud-practitioner.png'),
+
 		},
 		{
-			title: 'Kubernetes Native App Developer',
-			level: 'Professional',
-			issuer: 'Cloud Native Computing Foundation',
+			title: 'Kubernetes And Cloud Native Essentials',
+			level: 'Associate',
+			issuer: 'Linux Foundation',
 			year: '2025',
 			verified: true,
-			color: 'from-indigo-400 to-indigo-600'
+			color: 'from-indigo-400 to-indigo-600',
+			image: getImagePath('/cert-uploads/lfs250-kubernetes-and-cloud-native-essentials.png'),
+
 		},
 		{
 			title: 'Google Data Analytics',
-			level: 'Professional Certificate',
+			level: 'Associate',
 			issuer: 'Google/Coursera',
 			year: '2023',
 			verified: true,
-			color: 'from-green-400 to-green-600'
+			color: 'from-green-400 to-green-600',
+			image: getImagePath('/cert-uploads/google-data-analytics-professional-certificate.2.png'),
+
 		},
 		{
-			title: 'DevOps Technical Certified',
+			title: 'Kubernetes & Cloud Native Associate',
 			level: 'Advanced',
-			issuer: 'Amal4Tech',
+			issuer: 'Linux Foundation',
 			year: '2025',
 			verified: true,
-			color: 'from-purple-400 to-purple-600'
+			color: 'from-purple-400 to-purple-600',
+			
+			image: getImagePath('/cert-uploads/kcna-kubernetes-and-cloud-native-associate.png'),
+
 		}
 	];
 </script>

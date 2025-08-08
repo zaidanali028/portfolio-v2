@@ -43,9 +43,9 @@
 		<ProfileHeader />
 	</div>
 
-	<div class="animate-fade-in-up" style="animation-delay: 200ms;">
+	<!-- <div class="animate-fade-in-up" style="animation-delay: 200ms;">
 		<TechStack />
-	</div>
+	</div> -->
 
 	<div class="animate-fade-in-up" style="animation-delay: 300ms;">
 		<TechnologiesSection />

@@ -27,7 +27,7 @@
 </script>
 
 <svelte:head>
-	<title>Ali Zaidan - AWS Certified Solutions Architect & DevOps Engineer</title>
+	<title>Ali Zaidan | DevOps - Backend Engineer</title>
 	<meta name="description" content="Professional portfolio of Ali Zaidan, AWS Certified Solutions Architect and DevOps Engineer specializing in cloud architecture and automation." />
 	<link rel="icon" href="/favicon.ico" />
 </svelte:head>

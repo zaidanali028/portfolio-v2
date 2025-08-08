@@ -6,38 +6,38 @@
 		{
 			icon: Cloud,
 			title: 'Cloud Architecture',
-			description: 'Design and implement scalable cloud solutions on AWS, Azure, and GCP',
+			description: 'Design and implement scalable cloud solutions on AWS',
 			skills: ['AWS Solutions Architecture', 'Multi-cloud Strategy', 'Cost Optimization', 'Security Best Practices']
 		},
 		{
 			icon: Cog,
 			title: 'DevOps & Automation',
 			description: 'Streamline development workflows with CI/CD pipelines and infrastructure automation',
-			skills: ['Jenkins', 'GitHub Actions', 'Terraform', 'Ansible']
+			skills: ['Jenkins', 'GitHub Actions', 'Terraform', 'Semaphore CI', 'Circle CI','Nginx', 'Apache', 'Docker']
 		},
 		{
 			icon: Code,
 			title: 'Full-Stack Development',
 			description: 'Build modern web applications with cutting-edge technologies',
-			skills: ['React/Svelte', 'Node.js', 'TypeScript', 'REST APIs']
+			skills: ['Svelte', 'Node.js', 'Expressjs', 'REST APIs','Laravel/Livewire','HTMX','Fast API']
 		},
 		{
 			icon: Database,
 			title: 'Database Management',
 			description: 'Design and optimize database systems for performance and scalability',
-			skills: ['PostgreSQL', 'MongoDB', 'Redis', 'Database Design']
+			skills: ['PostgreSQL',  'MySQL', 'MongoDB', 'Redis', 'Database Design','DynamoDB']
 		},
 		{
 			icon: Shield,
 			title: 'Security & Compliance',
 			description: 'Implement security best practices and ensure compliance standards',
-			skills: ['IAM', 'Security Auditing', 'Compliance', 'Monitoring']
+			skills: ['IAM', 'Security Auditing', 'Compliance', 'Monitoring','Clair','Trivy']
 		},
 		{
 			icon: GitBranch,
 			title: 'Project Leadership',
 			description: 'Lead technical teams and manage complex software projects',
-			skills: ['Team Leadership', 'Agile/Scrum', 'Technical Mentoring', 'Architecture Planning']
+			skills: ['Team Leadership', 'Agile/Scrum', 'Technical Mentoring', 'Architecture Planning','Jira']
 		}
 	];
 </script>
