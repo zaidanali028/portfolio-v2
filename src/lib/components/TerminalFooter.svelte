@@ -175,8 +175,6 @@
 	let autoDemoInterval: ReturnType<typeof setTimeout>;
 
 	onMount(() => {
-		console.log('TerminalFooter mounted');
-
 		const cursorInterval = setInterval(() => {
 			showCursor = !showCursor;
 		}, 500);
@@ -185,14 +183,12 @@
 
 		// Focus input on mount
 		setTimeout(() => {
-			console.log('Focusing input element');
 			inputElement?.focus();
 		}, 100);
 
 		// Fallback to hide boot
 		setTimeout(() => {
 			if (showBootSequence) {
-				console.log('Boot sequence fallback timeout - hiding boot screen');
 				showBootSequence = false;
 			}
 		}, 3000);
@@ -204,24 +200,14 @@
 	});
 
 	async function startBootSequence() {
-		console.log('Boot sequence starting');
-		const bootSequence = [
-			'Portfolio Terminal v2.4.1 initializing...',
-			'Loading system modules... [OK]',
-			'Initializing user interface... [OK]',
-			'System ready. Welcome!'
-		];
+		// Simplified boot sequence - just show ready message
+		bootMessages = ['Portfolio Terminal v2.4.1 ready!'];
 
-		for (let i = 0; i < bootSequence.length; i++) {
-			bootMessages = [...bootMessages, bootSequence[i]];
-			await new Promise(resolve => setTimeout(resolve, 200));
-		}
-
+		// Hide boot sequence quickly
 		setTimeout(() => {
-			console.log('Boot sequence complete, hiding boot screen');
 			showBootSequence = false;
 			startAutoDemo();
-		}, 500);
+		}, 1000);
 	}
 
 	function startAutoDemo() {
@@ -262,23 +248,16 @@
 	}
 
 	async function executeCommand(cmd: string, withTyping: boolean = false) {
-		console.log('executeCommand called with:', cmd, 'isTyping:', isTyping);
-
-		if (isTyping) {
-			console.log('Command ignored - already typing');
-			return;
-		}
+		if (isTyping) return;
 
 		// Handle clear command immediately without setting isTyping
 		if (cmd === 'clear') {
-			console.log('Clearing terminal');
 			clearTerminal();
 			return;
 		}
 
 		// Set typing state for other commands
 		isTyping = true;
-		console.log('Set isTyping to true, executing command:', cmd);
 
 		try {
 
@@ -353,11 +332,8 @@
 		if (event.key === 'Enter') {
 			event.preventDefault();
 			if (currentLine.trim() && !isTyping) {
-				console.log('Executing command from keyboard:', currentLine.trim());
 				executeCommand(currentLine.trim());
 				currentLine = ''; // Clear input
-			} else {
-				console.log('Command not executed. currentLine:', currentLine, 'isTyping:', isTyping);
 			}
 		}
 	}
@@ -368,10 +344,7 @@
 
 	function handleCommandClick(cmd: string) {
 		if (!isTyping && cmd) {
-			console.log('Executing command from button:', cmd);
 			executeCommand(cmd);
-		} else {
-			console.log('Button click ignored. isTyping:', isTyping, 'cmd:', cmd);
 		}
 	}
 </script>
@@ -425,7 +398,18 @@
 			</div>
 		{:else}
 			<!-- Welcome Message -->
-			<div class="mb-4 animate-fade-in-up">
+			<div class="mb-4 animate-fade-in+
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			-up">
 				<div class="text-cyan-400 text-sm sm:text-base">Welcome to Ali's Portfolio Terminal</div>
 				<div class="text-gray-400 text-xs sm:text-sm">Type 'help' for available commands or click on the suggested commands below.</div>
 				<div class="text-gray-500 text-xs mt-1">Last login: {getCurrentTime()} on ttys001</div>
@@ -495,7 +479,6 @@
 	placeholder="Type a command..."
 	disabled={isTyping}
 	aria-label="Terminal command input"
-	autofocus
 />
 			{#if showCursor}
 				<span class="text-green-400 animate-pulse">▋</span>
