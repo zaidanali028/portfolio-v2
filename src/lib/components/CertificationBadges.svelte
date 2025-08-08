@@ -97,7 +97,7 @@
 		</div>
 
 		<!-- Certification Badges -->
-		<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-8">
+		<div class="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
 			{#each certifications as cert, index}
 				<div class="group relative flex flex-col items-center animate-fade-in" style="animation-delay: {index * 0.1}s">
 					<!-- Certification Image -->
