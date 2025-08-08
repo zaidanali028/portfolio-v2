@@ -1,11 +1,11 @@
 <script lang="ts">
-	import Badge from '$lib/components/ui/badge.svelte';
-	import Card from '$lib/components/ui/card.svelte';
 	import Button from '$lib/components/ui/button.svelte';
 	import { MapPin, Mail, Phone, Linkedin, Github, Download } from 'lucide-svelte';
 	import { inView, parallax, hoverAnimation } from '$lib/actions/animations';
-	// We'll need to copy the profile photo to the static directory
-	const profilePhoto = '/profile-photo.jpg';
+	import { base } from '$app/paths';
+
+	// Use SvelteKit's base path for proper GitHub Pages deployment
+	const profilePhoto = `${base}/profile-photo.jpg`;
 </script>
 
 <section
