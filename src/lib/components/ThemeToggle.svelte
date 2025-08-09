@@ -10,7 +10,7 @@
 
 <button
 	on:click={isDarkMode.toggle}
-	class="fixed top-6 right-6 z-50 p-3 rounded-full bg-card/80 backdrop-blur-sm border border-border/50 hover:bg-card/90 transition-all duration-300 hover:scale-110 group"
+	class="fixed top-6 right-20 md:right-6 z-40 p-3 rounded-full bg-card/80 backdrop-blur-sm border border-border/50 hover:bg-card/90 transition-all duration-300 hover:scale-110 group"
 	aria-label="Toggle theme"
 >
 	{#if $isDarkMode}

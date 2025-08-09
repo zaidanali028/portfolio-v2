@@ -211,12 +211,18 @@
 	}
 
 	function startAutoDemo() {
-		if (demoIndex < demoCommands.length && commandHistory.length === 0) {
+		// Only run auto-demo if no user interaction has occurred
+		if (demoIndex < demoCommands.length && commandHistory.length === 0 && !isTyping) {
 			executeCommand(demoCommands[demoIndex], true);
 			demoIndex++;
 
 			autoDemoInterval = setTimeout(startAutoDemo, 8000);
 		}
+	}
+
+	function stopAutoDemo() {
+		clearTimeout(autoDemoInterval);
+		demoIndex = demoCommands.length; // Prevent further auto-demo
 	}
 
 	function getCurrentTime(): string {
@@ -249,6 +255,11 @@
 
 	async function executeCommand(cmd: string, withTyping: boolean = false) {
 		if (isTyping) return;
+
+		// Stop auto-demo on user interaction (unless this IS the auto-demo)
+		if (!withTyping) {
+			stopAutoDemo();
+		}
 
 		// Handle clear command immediately without setting isTyping
 		if (cmd === 'clear') {
@@ -398,18 +409,7 @@
 			</div>
 		{:else}
 			<!-- Welcome Message -->
-			<div class="mb-4 animate-fade-in+
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			-up">
+			<div class="mb-4 animate-fade-in-up">
 				<div class="text-cyan-400 text-sm sm:text-base">Welcome to Ali's Portfolio Terminal</div>
 				<div class="text-gray-400 text-xs sm:text-sm">Type 'help' for available commands or click on the suggested commands below.</div>
 				<div class="text-gray-500 text-xs mt-1">Last login: {getCurrentTime()} on ttys001</div>

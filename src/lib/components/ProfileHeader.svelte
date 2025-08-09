@@ -3,10 +3,16 @@
 	import { MapPin, Mail, Phone, Linkedin, Github, Download } from 'lucide-svelte';
 	import { inView, parallax, hoverAnimation } from '$lib/actions/animations';
 	import { getImagePath } from '$lib/utils/assets';
+	import { analytics } from '$lib/stores/analytics';
 
 	// Use utility function for proper GitHub Pages deployment
 	const profilePhoto = getImagePath('/profile-photo.jpg');
 	const cvDownloadPath = getImagePath('/Ali-cv-new.pdf');
+
+	// Handle CV download tracking
+	function handleCVDownload() {
+		analytics.incrementDownloads();
+	}
 </script>
 
 <section
@@ -102,6 +108,7 @@
 					<a
 						href={cvDownloadPath}
 						download="Ali-Usman-Zaidan-CV.pdf"
+						on:click={handleCVDownload}
 						class="inline-flex items-center bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg font-medium transition-colors duration-200"
 					>
 						<Download class="w-4 h-4 mr-2" />

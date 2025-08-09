@@ -3,6 +3,7 @@
 	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
 	import { onMount } from 'svelte';
 	import { initializeScrollTracking, initializeMotionPreference, animationState } from '$lib/utils/animations';
+	import { analytics } from '$lib/stores/analytics';
 
 	let { children } = $props();
 
@@ -10,6 +11,9 @@
 		// Initialize animation systems
 		initializeMotionPreference();
 		const cleanupScroll = initializeScrollTracking();
+
+		// Initialize analytics
+		analytics.initialize();
 
 		// Ensure page starts at top
 		window.scrollTo(0, 0);

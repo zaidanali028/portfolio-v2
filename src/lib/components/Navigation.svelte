@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { Menu, X } from 'lucide-svelte';
-	import Button from '$lib/components/ui/button.svelte';
+
+	let navElement: HTMLElement;
 
 	let isScrolled = false;
 	let isMobileMenuOpen = false;
@@ -18,8 +19,20 @@
 		const handleScroll = () => {
 			isScrolled = window.scrollY > 50;
 		};
+
+		const handleClickOutside = (event: MouseEvent) => {
+			if (isMobileMenuOpen && navElement && !navElement.contains(event.target as Node)) {
+				isMobileMenuOpen = false;
+			}
+		};
+
 		window.addEventListener('scroll', handleScroll);
-		return () => window.removeEventListener('scroll', handleScroll);
+		document.addEventListener('click', handleClickOutside);
+
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+			document.removeEventListener('click', handleClickOutside);
+		};
 	});
 
 	const scrollToSection = (href: string) => {
@@ -32,13 +45,14 @@
 </script>
 
 <nav
+	bind:this={navElement}
 	class={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
 		isScrolled
 			? 'bg-background/80 backdrop-blur-lg border-b border-primary/20'
 			: 'bg-transparent'
 	}`}
 >
-	<div class="container mx-auto px-6 py-4">
+	<div class="container mx-auto px-6 py-4 relative">
 		<div class="flex items-center justify-between">
 			<!-- Logo -->
 			<div class="flex items-center gap-2">
@@ -64,29 +78,29 @@
 			</div>
 
 			<!-- Mobile Menu Button -->
-			<Button
-				variant="ghost"
-				size="icon"
-				class="md:hidden text-foreground"
+			<button
+				class="md:hidden p-3 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10 border border-primary/20 bg-background/80 backdrop-blur-sm {isMobileMenuOpen ? 'bg-primary/20' : ''}"
 				on:click={() => (isMobileMenuOpen = !isMobileMenuOpen)}
+				aria-label="Toggle mobile menu"
+				type="button"
 			>
 				{#if isMobileMenuOpen}
-					<X />
+					<X class="w-5 h-5" />
 				{:else}
-					<Menu />
+					<Menu class="w-5 h-5" />
 				{/if}
-			</Button>
+			</button>
 		</div>
 
 		<!-- Mobile Navigation -->
 		{#if isMobileMenuOpen}
 			<div
-				class="md:hidden mt-4 p-4 bg-card rounded-lg border border-primary/20 animate-fade-in"
+				class="md:hidden absolute top-full left-0 right-0 mt-2 mx-4 p-4 bg-background/95 backdrop-blur-sm rounded-lg border border-primary/20 shadow-xl z-50"
 			>
 				{#each navItems as item}
 					<button
 						on:click={() => scrollToSection(item.href)}
-						class="block w-full text-left py-2 text-muted-foreground hover:text-primary transition-colors"
+						class="block w-full text-left py-3 px-2 text-muted-foreground hover:text-primary hover:bg-primary/10 rounded transition-all duration-200"
 					>
 						{item.label}
 					</button>

@@ -8,9 +8,22 @@
 	import EnhancedParticles from '$lib/components/EnhancedParticles.svelte';
 	import TechnologiesSection from '$lib/components/TechnologiesSection.svelte';
 	import TerminalFooter from '$lib/components/TerminalFooter.svelte';
+	import AnalyticsDisplay from '$lib/components/AnalyticsDisplay.svelte';
 	import { onMount } from 'svelte';
+	import { analytics } from '$lib/stores/analytics';
+
+
 
 	onMount(() => {
+
+	onMount(() => {
+		// Only count once per session
+		if (!sessionStorage.getItem('visited')) {
+			analytics.incrementVisits();
+			sessionStorage.setItem('visited', 'true');
+		}
+	});
+	
 		// Ensure page starts at the top
 		window.scrollTo({ top: 0, behavior: 'instant' });
 
@@ -39,7 +52,7 @@
 	</div>
 
 	<!-- Main content sections with staggered animations -->
-	<div class="animate-fade-in-up" style="animation-delay: 100ms;">
+	<div id="about" class="animate-fade-in-up" style="animation-delay: 100ms;">
 		<ProfileHeader />
 	</div>
 
@@ -47,20 +60,27 @@
 		<TechStack />
 	</div> -->
 
-	<div class="animate-fade-in-up" style="animation-delay: 300ms;">
+	<div id="tech-stack" class="animate-fade-in-up" style="animation-delay: 300ms;">
 		<TechnologiesSection />
 	</div>
 
-	<div class="animate-fade-in-up" style="animation-delay: 400ms;">
+	<div id="badges" class="animate-fade-in-up" style="animation-delay: 400ms;">
 		<CertificationBadges />
 	</div>
 
-	<div class="animate-fade-in-up" style="animation-delay: 500ms;">
+	<div id="expertise" class="animate-fade-in-up" style="animation-delay: 500ms;">
 		<Expertise />
 	</div>
 
-	<div class="animate-fade-in-up" style="animation-delay: 600ms;">
+	<div id="background" class="animate-fade-in-up" style="animation-delay: 600ms;">
 		<BackgroundInfo />
+	</div>
+</div>
+
+<!-- Analytics Display -->
+<div class="animate-fade-in-up py-8 bg-background/50" style="animation-delay: 650ms;">
+	<div class="container mx-auto px-6 flex justify-center">
+		<AnalyticsDisplay />
 	</div>
 </div>
 
