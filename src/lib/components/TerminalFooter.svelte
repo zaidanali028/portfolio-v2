@@ -59,12 +59,12 @@
 		'cat contact.txt': {
 			command: 'cat contact.txt',
 			output: [
-				'<span class="text-yellow-400">📧 Email:</span> <span class="text-cyan-400 underline cursor-pointer hover:text-cyan-300">ali.zaidan@example.com</span>',
-				'<span class="text-blue-400">💼 LinkedIn:</span> <span class="text-cyan-400 underline cursor-pointer hover:text-cyan-300">linkedin.com/in/ali-zaidan</span>',
-				'<span class="text-purple-400">🐙 GitHub:</span> <span class="text-cyan-400 underline cursor-pointer hover:text-cyan-300">github.com/ali-zaidan</span>',
-				'<span class="text-green-400">🌐 Website:</span> <span class="text-cyan-400 underline cursor-pointer hover:text-cyan-300">ali-zaidan.dev</span>',
-				'<span class="text-red-400">📱 Phone:</span> <span class="text-dark">+233240040834</span>',
-				'<span class="text-orange-400">📍 Location:</span> <span class="text-dark">Remote / On-site</span>',
+				'<span class="text-yellow-400">📧 Email:</span> <span class="text-cyan-400 underline cursor-pointer hover:text-cyan-300 transition-colors duration-200" title="Click to send email">zaidanali028@gmail.com</span>',
+				'<span class="text-blue-400">💼 LinkedIn:</span> <span class="text-cyan-400 underline cursor-pointer hover:text-cyan-300 transition-colors duration-200" title="Click to open LinkedIn profile">https://www.linkedin.com/in/ali-usman-zaidan-630028200/</span>',
+				'<span class="text-purple-400">🐙 GitHub:</span> <span class="text-cyan-400 underline cursor-pointer hover:text-cyan-300 transition-colors duration-200" title="Click to open GitHub profile">github.com/zaidanali028</span>',
+				'<span class="text-green-400">🌐 Website:</span> <span class="text-cyan-400 underline cursor-pointer hover:text-cyan-300 transition-colors duration-200" title="Click to open website">https://zaidanali028.github.io/portfolio-v2/</span>',
+				'<span class="text-red-400">📱 Phone:</span> <span class="text-gray-300">+233240040834</span>',
+				'<span class="text-orange-400">📍 Location:</span> <span class="text-gray-300">Remote / On-site</span>',
 				'<span class="text-gray-400">💬 Status:</span> <span class="text-green-400">Available for opportunities</span>',
 				''
 			],
@@ -222,7 +222,7 @@
 		// Hide boot sequence quickly
 		setTimeout(() => {
 			showBootSequence = false;
-			startAutoDemo();
+			// startAutoDemo(); // Disabled - let users interact manually
 		}, 1000);
 	}
 
@@ -378,6 +378,41 @@
 			}, 100);
 		}
 	}
+
+	// Handle clickable links in terminal output
+	function handleLinkClick(event: Event) {
+		const target = event.target as HTMLElement;
+		if (target && target.classList.contains('cursor-pointer')) {
+			const text = target.textContent || '';
+
+			// Prevent event bubbling
+			event.preventDefault();
+			event.stopPropagation();
+
+			if (text.includes('@') && text.includes('.')) {
+				// Email link
+				window.open(`mailto:${text}`, '_blank');
+			} else if (text.includes('linkedin.com')) {
+				// LinkedIn link
+				const url = text.startsWith('http') ? text : `https://${text}`;
+				window.open(url, '_blank');
+			} else if (text.includes('github.com')) {
+				// GitHub link
+				const url = text.startsWith('http') ? text : `https://${text}`;
+				window.open(url, '_blank');
+			} else if (text.includes('zaidanali028.github.io') || text.includes('portfolio')) {
+				// Website link
+				const url = text.startsWith('http') ? text : `https://${text}`;
+				window.open(url, '_blank');
+			}
+
+			// Add visual feedback
+			target.style.transform = 'scale(0.95)';
+			setTimeout(() => {
+				target.style.transform = 'scale(1)';
+			}, 150);
+		}
+	}
 </script>
 
 <footer class="bg-gray-900 dark:bg-gray-900 text-green-400 font-mono text-xs sm:text-sm border-t border-gray-700 dark:border-gray-700 relative overflow-hidden" class:light-terminal={!$isDarkMode}>
@@ -476,7 +511,13 @@
 						</div>
 					{:else}
 						{#each entry.output as line}
-							<div class="text-gray-300 leading-relaxed">{@html line}</div>
+							<div
+								class="text-gray-300 leading-relaxed"
+								on:click={handleLinkClick}
+								on:keydown={(e) => e.key === 'Enter' && handleLinkClick(e)}
+								role="button"
+								tabindex="0"
+							>{@html line}</div>
 						{/each}
 					{/if}
 				</div>
@@ -595,6 +636,20 @@
 	button:focus {
 		outline: 2px solid #63b3ed;
 		outline-offset: 2px;
+	}
+
+	/* Clickable link styles */
+	:global(.cursor-pointer) {
+		transition: all 0.2s ease;
+	}
+
+	:global(.cursor-pointer:hover) {
+		text-shadow: 0 0 8px currentColor;
+		transform: scale(1.02);
+	}
+
+	:global(.cursor-pointer:active) {
+		transform: scale(0.98);
 	}
 
 	/* Animation for loading dots */
