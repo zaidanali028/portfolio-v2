@@ -6,10 +6,22 @@
 	import BackgroundInfo from '$lib/components/BackgroundInfo.svelte';
 	import EnhancedParticles from '$lib/components/EnhancedParticles.svelte';
 	import TechnologiesSection from '$lib/components/TechnologiesSection.svelte';
-	import TerminalFooter from '$lib/components/TerminalFooter.svelte';
+	import SimpleFooter from '$lib/components/SimpleFooter.svelte';
+	import FloatingTerminalToggle from '$lib/components/FloatingTerminalToggle.svelte';
+	import TerminalModal from '$lib/components/TerminalModal.svelte';
 	import AnalyticsDisplay from '$lib/components/AnalyticsDisplay.svelte';
 	import { onMount } from 'svelte';
 	import { analytics } from '$lib/stores/analytics';
+
+	let isTerminalOpen = false;
+
+	function handleTerminalToggle(event: CustomEvent<boolean>) {
+		isTerminalOpen = event.detail;
+	}
+
+	function handleTerminalClose() {
+		isTerminalOpen = false;
+	}
 
 
 
@@ -77,6 +89,19 @@
 	</div>
 </div>
 
+<!-- Simple Footer -->
 <div class="animate-fade-in-up" style="animation-delay: 700ms;">
-	<TerminalFooter />
+	<SimpleFooter />
 </div>
+
+<!-- Floating Terminal Toggle -->
+<FloatingTerminalToggle
+	bind:isOpen={isTerminalOpen}
+	on:toggle={handleTerminalToggle}
+/>
+
+<!-- Terminal Modal -->
+<TerminalModal
+	bind:isOpen={isTerminalOpen}
+	on:close={handleTerminalClose}
+/>
