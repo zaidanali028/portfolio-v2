@@ -21,7 +21,7 @@ cloud_path = [
 draw.line(cloud_path + [cloud_path[0]], fill=(200, 230, 255, 220), width=5, joint="curve")
 draw.line(cloud_path + [cloud_path[0]], fill=(100, 180, 255, 180), width=3, joint="curve")
 
-# 💠 Text: "AUz" – modern monogram
+#  Text: "AUz" – modern monogram
 text = "AUz"
 
 # 🔍 Try to load a TrueType font (works on most systems)

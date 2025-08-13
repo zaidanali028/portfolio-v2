@@ -184,7 +184,21 @@
 		// Focus input on mount
 		setTimeout(() => {
 			inputElement?.focus();
-		}, 100);
+		}, 500);
+
+		// Add click handler to terminal content to focus input
+		const handleTerminalClick = () => {
+			if (!isTyping) {
+				inputElement?.focus();
+			}
+		};
+
+		// Add click listener to terminal
+		setTimeout(() => {
+			if (terminalRef) {
+				terminalRef.addEventListener('click', handleTerminalClick);
+			}
+		}, 600);
 
 		// Fallback to hide boot
 		setTimeout(() => {
@@ -196,6 +210,9 @@
 		return () => {
 			clearInterval(cursorInterval);
 			clearInterval(autoDemoInterval);
+			if (terminalRef) {
+				terminalRef.removeEventListener('click', handleTerminalClick);
+			}
 		};
 	});
 
@@ -344,7 +361,7 @@
 			event.preventDefault();
 			if (currentLine.trim() && !isTyping) {
 				executeCommand(currentLine.trim());
-				currentLine = ''; // Clear input
+				currentLine = '';
 			}
 		}
 	}
@@ -355,7 +372,11 @@
 
 	function handleCommandClick(cmd: string) {
 		if (!isTyping && cmd) {
+			stopAutoDemo();
 			executeCommand(cmd);
+			setTimeout(() => {
+				inputElement?.focus();
+			}, 100);
 		}
 	}
 </script>
@@ -479,6 +500,9 @@
 	placeholder="Type a command..."
 	disabled={isTyping}
 	aria-label="Terminal command input"
+	autocomplete="off"
+	spellcheck="false"
+	tabindex="0"
 />
 			{#if showCursor}
 				<span class="text-green-400 animate-pulse">▋</span>

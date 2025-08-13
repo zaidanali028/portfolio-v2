@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Navigation from '$lib/components/Navigation.svelte';
 	import ProfileHeader from '$lib/components/ProfileHeader.svelte';
-	import TechStack from '$lib/components/TechStack.svelte';
 	import CertificationBadges from '$lib/components/CertificationBadges.svelte';
 	import Expertise from '$lib/components/Expertise.svelte';
 	import BackgroundInfo from '$lib/components/BackgroundInfo.svelte';
@@ -15,22 +14,16 @@
 
 
 	onMount(() => {
-
-	onMount(() => {
 		// Only count once per session
 		if (!sessionStorage.getItem('visited')) {
 			analytics.incrementVisits();
 			sessionStorage.setItem('visited', 'true');
 		}
-	});
-	
-		// Ensure page starts at the top
-		window.scrollTo({ top: 0, behavior: 'instant' });
 
-		// Add a small delay to ensure DOM is ready, then scroll to top again
-		setTimeout(() => {
-			window.scrollTo({ top: 0, behavior: 'smooth' });
-		}, 100);
+		// Only scroll to top if there's no hash in URL (no navigation target)
+		if (!window.location.hash) {
+			window.scrollTo({ top: 0, behavior: 'instant' });
+		}
 
 		// Ensure all content is visible (fallback for animation issues)
 		setTimeout(() => {

@@ -15,8 +15,10 @@
 		// Initialize analytics
 		analytics.initialize();
 
-		// Ensure page starts at top
-		window.scrollTo(0, 0);
+		// Only scroll to top on initial page load, not on navigation
+		if (!window.location.hash) {
+			window.scrollTo(0, 0);
+		}
 
 		// Set page as loaded immediately
 		animationState.update(state => ({

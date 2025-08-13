@@ -160,13 +160,7 @@ html {
 
 /* Ensure page starts at top */
 html, body {
-  scroll-behavior: auto;
   overflow-x: hidden;
-}
-
-/* Reset scroll position on page load */
-body {
-  scroll-behavior: smooth;
 }
 
 /* Performance optimizations */

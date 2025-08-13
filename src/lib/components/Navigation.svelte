@@ -36,9 +36,21 @@
 	});
 
 	const scrollToSection = (href: string) => {
-		const element = document.querySelector(href);
+		// Prevent default behavior and handle manually
+		const targetId = href.replace('#', '');
+		const element = document.getElementById(targetId);
+
 		if (element) {
-			element.scrollIntoView({ behavior: 'smooth' });
+			// Get the element's position
+			const rect = element.getBoundingClientRect();
+			const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+			const targetPosition = rect.top + scrollTop - 100; // 100px offset for nav
+
+			// Smooth scroll to position
+			window.scrollTo({
+				top: targetPosition,
+				behavior: 'smooth'
+			});
 		}
 		isMobileMenuOpen = false;
 	};

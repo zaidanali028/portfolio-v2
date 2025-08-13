@@ -104,7 +104,13 @@ export function staggerIn(
 	const reducedMotion = get(prefersReducedMotion);
 	if (reducedMotion) return {};
 
-	const children = node.querySelectorAll(selector) as NodeListOf<HTMLElement>;
+	// Handle direct child selector
+	let children: NodeListOf<HTMLElement>;
+	if (selector === '> *' || selector === '> div') {
+		children = node.querySelectorAll(':scope > *') as NodeListOf<HTMLElement>;
+	} else {
+		children = node.querySelectorAll(selector) as NodeListOf<HTMLElement>;
+	}
 	
 	// Set initial state for all children
 	children.forEach((child, index) => {
