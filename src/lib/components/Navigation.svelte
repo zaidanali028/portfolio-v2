@@ -75,7 +75,7 @@
 			<!-- Logo -->
 			<div class="flex items-center gap-2">
 				<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-					<span class="text-white font-bold text-sm">AUz</span>
+					<span class="text-white font-bold text-sm">AZ</span>
 				</div>
 				<span class="text-foreground font-semibold text-lg">Ali Usman Zaidan</span>
 			</div>
