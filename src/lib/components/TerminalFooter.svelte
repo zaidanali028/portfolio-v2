@@ -49,8 +49,7 @@
 				'<span class="text-blue-400">drwxr-xr-x</span>  5 <span class="text-yellow-400">ali</span>  <span class="text-green-400">staff</span>   160 <span class="text-gray-400">Dec  8 2024</span> <span class="text-blue-400">..</span>',
 				'<span class="text-white">-rw-r--r--</span>  1 <span class="text-yellow-400">ali</span>  <span class="text-green-400">staff</span>  1024 <span class="text-gray-400">Dec  8 2024</span> <span class="text-gray-300">.gitignore</span>',
 				'<span class="text-blue-400">drwxr-xr-x</span>  4 <span class="text-yellow-400">ali</span>  <span class="text-green-400">staff</span>   128 <span class="text-gray-400">Dec  8 2024</span> <span class="text-cyan-400">aws-infrastructure</span>',
-				'<span class="text-blue-400">drwxr-xr-x</span>  6 <span class="text-yellow-400">ali</span>  <span class="text-green-400">staff</span>   192 <span class="text-gray-400">Dec  8 2024</span> <span class="text-cyan-400">react-dashboard</span>',
-				'<span class="text-blue-400">drwxr-xr-x</span>  5 <span class="text-yellow-400">ali</span>  <span class="text-green-400">staff</span>   160 <span class="text-gray-400">Dec  8 2024</span> <span class="text-cyan-400">microservices-api</span>',
+				'<span class="text-blue-400">drwxr-xr-x</span>  5 <span class="text-yellow-400">ali</span>  <span class="text-green-400">staff</span>   160 <span class="text-gray-400">Dec  8 2024</span> <span class="text-cyan-400">crs-microservices-deployment</span>',
 				'<span class="text-blue-400">drwxr-xr-x</span>  3 <span class="text-yellow-400">ali</span>  <span class="text-green-400">staff</span>    96 <span class="text-gray-400">Dec  8 2024</span> <span class="text-cyan-400">portfolio-website</span>',
 				'<span class="text-blue-400">drwxr-xr-x</span>  4 <span class="text-yellow-400">ali</span>  <span class="text-green-400">staff</span>   128 <span class="text-gray-400">Dec  8 2024</span> <span class="text-cyan-400">docker-compose-stack</span>',
 				''
@@ -64,8 +63,8 @@
 				'<span class="text-blue-400">💼 LinkedIn:</span> <span class="text-cyan-400 underline cursor-pointer hover:text-cyan-300">linkedin.com/in/ali-zaidan</span>',
 				'<span class="text-purple-400">🐙 GitHub:</span> <span class="text-cyan-400 underline cursor-pointer hover:text-cyan-300">github.com/ali-zaidan</span>',
 				'<span class="text-green-400">🌐 Website:</span> <span class="text-cyan-400 underline cursor-pointer hover:text-cyan-300">ali-zaidan.dev</span>',
-				'<span class="text-red-400">📱 Phone:</span> <span class="text-white">+1 (555) 123-4567</span>',
-				'<span class="text-orange-400">📍 Location:</span> <span class="text-white">Remote / On-site</span>',
+				'<span class="text-red-400">📱 Phone:</span> <span class="text-dark">+233240040834</span>',
+				'<span class="text-orange-400">📍 Location:</span> <span class="text-dark">Remote / On-site</span>',
 				'<span class="text-gray-400">💬 Status:</span> <span class="text-green-400">Available for opportunities</span>',
 				''
 			],
